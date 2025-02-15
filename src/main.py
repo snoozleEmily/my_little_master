@@ -1,36 +1,29 @@
 import pygame
 
-from songs.music import SongsPath
+from core.display_manager import DisplayManager
+from core.signal_monitor import SignalMonitor
+from core.sound_controller import SoundController
 from constants.colors import BACKGROUND_COLOR
 from constants.project_config import WIDTH, HEIGHT
 
-pygame.init()
-pygame.mixer.init()
+def main():
+    pygame.init()
+    pygame.mixer.init()
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
-pygame.display.set_caption("My Little Master")
+    display = DisplayManager(WIDTH, HEIGHT)
+    music_controller = SoundController()
+    event_handler = SignalMonitor(display, music_controller)
 
-songs_path: SongsPath = SongsPath()
-SongsPath.start_music(songs_path)
+    music_controller.start_music()
 
-# Main game loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.VIDEORESIZE:
-            WIDTH, HEIGHT = event.w, event.h
-            screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
+    while event_handler.running:
+        event_handler.process_events()
+        music_controller.check_music_status()
+        
+        display.screen.fill(BACKGROUND_COLOR)
+        pygame.display.flip()
 
-    # Check and play next song if the current one finishes
-    SongsPath.check_current_music(songs_path)
+    pygame.quit()
 
-    # Fill background
-    screen.fill(BACKGROUND_COLOR)
-
-    # Update display
-    pygame.display.flip()
-
-# Quit pygame
-pygame.quit()
+if __name__ == "__main__":
+    main()

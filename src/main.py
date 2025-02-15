@@ -18,7 +18,7 @@ def main():
 
     while event_handler.running:
         event_handler.process_events()
-        music_controller.check_music_status()
+        music_controller.check_music()
         
         display.screen.fill(BACKGROUND_COLOR)
         pygame.display.flip()

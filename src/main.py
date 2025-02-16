@@ -1,7 +1,7 @@
 import pygame
 
 from core.display_manager import DisplayManager
-from core.signal_monitor import SignalMonitor
+from core.key_controls import KeyControls
 from core.sound_controller import SoundController
 from constants.colors import BACKGROUND_COLOR
 from constants.project_config import WIDTH, HEIGHT
@@ -12,7 +12,7 @@ def main():
 
     display = DisplayManager(WIDTH, HEIGHT)
     music_controller = SoundController()
-    event_handler = SignalMonitor(display, music_controller)
+    event_handler = KeyControls(display, music_controller)
 
     music_controller.start_music()
 

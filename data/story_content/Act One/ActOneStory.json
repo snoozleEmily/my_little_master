@@ -1,0 +1,9 @@
+{
+    "introduction:": "Give introduction here.", 
+    "intro_after": "Give a hook for the next phase and the first choice {% include '1ST_CHOICE_ACT_ONE.j2' %}",
+    "phase_rising_action": "Development and consequence of the first choice {% CUSTOM_RISING_ACTION_ACT_ONE %}.",                         
+    "phase_crisis": "Give a crisis that leads to the second choice (biggest turn around - affects the story) {% include '2ND_CHOICE_ACT_ONE.j2' %}.",                               
+    "phase_resolution": "Development and consequence of the second choice {% CUSTOM_RESOLUTION_ACT_ONE %}.",
+    "ending_before": "Wrap up the and prepare for the end of the chapter.",
+    "ending": "End the chapter and make the consequence of the choicess clear {% CUSTOM_ENDING_ACT_ONE %}."
+}

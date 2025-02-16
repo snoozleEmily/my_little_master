@@ -1,11 +1,10 @@
 import os
 import pygame
 
-from constants.project_config import BASE_DIR
-
 
 pygame.mixer.init()
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PLAYLIST_DIR = os.path.join(BASE_DIR, "..", "..", "data", "assets", "music")
 
 

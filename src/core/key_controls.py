@@ -1,6 +1,6 @@
 import pygame
 
-class SignalMonitor:
+class KeyControls:
     def __init__(self, display, music_controller):
         self.display = display
         self.music_controller = music_controller

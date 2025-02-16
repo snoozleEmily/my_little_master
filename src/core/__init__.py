@@ -1,4 +1,4 @@
-from .music import SongsPath
+from .music_player import SongsPath
 from .sound_controller import SoundController
 from .display_manager import DisplayManager
-from .signal_monitor import SignalMonitor
+from .key_controls import KeyControls

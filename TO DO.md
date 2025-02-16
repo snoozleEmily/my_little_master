@@ -1,12 +1,17 @@
-Vamos ir escrevendo aqui as tarefas que precisamos fazer:
+Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 
 
+# To Dos: 
 - [] Brainstorming
 - [X] Criar base do projeto
 - [] Criar classe do character
+- [] Implementar jinja2 e estrutura de condições da história
 - [] 
 
 
+# Obervações:
+
+- Classe do character
 ```python
 Attributes of the character (int)
 self.constitution = 100

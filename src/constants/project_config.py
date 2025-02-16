@@ -1,7 +1,6 @@
-import os
-
 # Window default size
 WIDTH, HEIGHT = 1280, 632
 
-# Call the needed directory with BASE_DIR
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Do we really need this module? The idea was add a couple of random constants...
+# Maybe it's useless, but I'll keep it for now.

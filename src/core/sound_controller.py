@@ -1,6 +1,6 @@
 import pygame
 
-from .music import SongsPath
+from .music_player import SongsPath
 
 
 class SoundController(SongsPath):

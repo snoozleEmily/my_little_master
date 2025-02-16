@@ -1,0 +1,28 @@
+{
+    "attribute_choice": {
+        "text": "The essence of your being calls upon a path. Will you follow your Aura, Spirit, Psyche, or Fate?",
+        "choices": {
+            "aura": [
+                "Your presence alone bends reality, a beacon of unseen energies.",
+                "A silent force surrounds you, guiding you to places yet unknown.",
+                "The cosmos whispers, and your aura listens. You will shape destiny itself."
+            ],
+            "spirit": [
+                "Your will is unshakable, your soul burns with an undying flame.",
+                "The spirits of old recognize your resolve. Strength flows through you.",
+                "You stand firm against all odds, an unbreakable force in the tides of fate."
+            ],
+            "psyche": [
+                "Your mind is a labyrinth of boundless thought, a seeker of truths.",
+                "Mysteries unravel before you, their secrets yearning to be understood.",
+                "Clarity is your weapon. The mind, sharper than any blade, shall carve your future."
+            ],
+            "fate": [
+                "Threads of destiny weave around you, unseen yet unyielding.",
+                "Your path is neither chosen nor avoided—it is inevitable.",
+                "You are but a traveler in a story already written, yet who holds the pen?"
+            ]
+        }
+        
+    }
+}

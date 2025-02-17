@@ -12,7 +12,7 @@ extensions = [
 
 setup(
     name="My Little Master",
-    version="1.3", # Change before updating
+    version="1.4", # Change before updating
     description="Turn-based management game.",
     authors="snoozleEmily" "jluizcalonio",
     url="https://github.com/snoozleEmily/smy_little_master",
@@ -20,6 +20,7 @@ setup(
     install_requires=[
         "numpy>=1.18.0",
         "pygame>=2.0.0",
+        "jinja2>=2.11.0",
     ],
     packages=find_packages(),
     include_package_data=True,

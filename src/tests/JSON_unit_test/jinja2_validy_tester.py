@@ -3,21 +3,18 @@ import json
 import unittest
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
-# Not working - fix later for testing jinja2 templates
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-TEMPLATES_DIR = os.path.join(BASE_DIR, "..", "..", "..", "data", "assets", "templates")
-print(f"TEMPLATES_DIR: {TEMPLATES_DIR}")
+TEMPLATES_DIR = os.path.join(BASE_DIR, "..", "..", "..", "data", "story_content", "Default JSON")
+
 class TestJinjaTemplates(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(self):
         """Set up the Jinja2 environment and define test variables."""
         if not os.path.exists(TEMPLATES_DIR):
-            
             raise FileNotFoundError(f"Templates directory not found: {TEMPLATES_DIR}")
 
-        cls.env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-        cls.context = {
+        self.env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
+        self.context = {
             "custom_text": "Your custom introduction text here",
             "CUSTOM_RISING_ACTION_ACT_ONE": "The unexpected twist unfolds.",
             "CUSTOM_RESOLUTION_ACT_ONE": "The consequences ripple through the story.",
@@ -31,8 +28,6 @@ class TestJinjaTemplates(unittest.TestCase):
         if not os.path.exists(template_path):
             self.fail(f"Template '{template_name}' not found in {TEMPLATES_DIR}")
 
-        print(f"\nRendering Template: {template_name}")  # Debugging info
-
         try:
             template = self.env.get_template(template_name)
         except TemplateNotFound as e:
@@ -43,32 +38,21 @@ class TestJinjaTemplates(unittest.TestCase):
         try:
             rendered_json = json.loads(rendered)
         except json.JSONDecodeError as e:
-            self.fail(f"Rendered content from '{template_name}' is not valid JSON. Error: {e}\nContent:\n{rendered}")
+            self.fail(
+                f"Rendered content from '{template_name}' is not valid JSON. Error: {e}\nContent:\n{rendered}"
+            )
 
         return rendered_json
 
-    def test_template_json(self):
-        """Test the main JSON template."""
-        rendered_json = self.render_template("template.json.j2")
-        self.assertIsInstance(rendered_json, dict)
-
-    def test_default_choices_json(self):
-        """Test the DefaultChoices JSON template."""
-        rendered_json = self.render_template("DefaultChoices.json.j2")
-        self.assertIsInstance(rendered_json, dict)
-
-    def test_default_story_json(self):
+    def test_default_story(self):
         """Test the DefaultStory JSON template."""
-        rendered_json = self.render_template("DefaultStory.json.j2")
+        rendered_json = self.render_template("DefaultStory.json")
         self.assertIsInstance(rendered_json, dict)
 
-if __name__ == '__main__':
-    print(f"Running tests... Looking for templates in: {TEMPLATES_DIR}")
-    
-    # Debugging: List available template files
-    if os.path.exists(TEMPLATES_DIR):
-        print(f"Available templates: {os.listdir(TEMPLATES_DIR)}")
-    else:
-        print("Templates directory does not exist!")
+    def test_default_choices(self):
+        """Test the DefaultChoices JSON template."""
+        rendered_json = self.render_template("DefaultChoices.json")
+        self.assertIsInstance(rendered_json, dict)
 
+if __name__ == "__main__":
     unittest.main()

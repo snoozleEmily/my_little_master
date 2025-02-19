@@ -6,7 +6,7 @@ Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 - [X] Criar base do projeto
 - [] Criar classe do character
 - [] Implementar jinja2 e estrutura de condições da história
-- [] 
+- [] Sistema de atribuição de valores - nome do MC
 
 
 # Obervações:
@@ -42,3 +42,12 @@ self.unlucky_character = True
 self.normal_character = False
 Higher chances of negative events
 ```
+
+- Diretrizes - Sistema de valores - alfabeto - nome
+Então, a ideia seria: 1. Só aceita letras.
+2. Guardamos o nome inserido.
+3. Copiamos o valor dessa var em outra
+4. Colocamos todas as letras em lowercase
+5. Criamos um alfabeto todo lower case
+6. No começo de cada novo jogo o algoritmo designa valores aleatórios para cada letra.
+6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai...

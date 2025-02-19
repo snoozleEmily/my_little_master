@@ -25,3 +25,6 @@ class KeyControls:
     def handle_keydown(self, event):
         if event.key == pygame.K_F1:
             self.display.toggle_fullscreen()
+        elif event.key == pygame.K_ESCAPE:
+            if self.display.fullscreen:  
+                self.display.toggle_fullscreen()

@@ -50,6 +50,6 @@ Então, a ideia seria:
 3. Copiamos o valor dessa var em outra
 4. Colocamos todas as letras em lowercase
 5. Criamos um alfabeto todo lower case
-6. No começo de cada novo jogo o algoritmo designa valores aleatórios para cada letra.
-6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai...
+6. No começo de cada novo jogo o algoritmo designa valores aleatórios para cada letra. <br>
+6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai... <br>
 Especificamos que só podem ser usadas letras do alfabeto inglês (já temos um edge case pro algoritmo)

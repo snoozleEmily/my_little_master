@@ -1,0 +1,46 @@
+{% macro add_phrase(section) %}
+    {% if section %}
+        {{ section }} This is an additional phrase to enrich the story.
+    {% else %}
+        No content available.
+    {% endif %}
+{% endmacro %}
+
+Introduction:
+{{ add_phrase(introduction) }}
+
+Intro After:
+{{ add_phrase(intro_after) }}
+
+Rising Action:
+{{ add_phrase(phase_rising_action) }}
+
+Crisis:
+{{ add_phrase(phase_crisis) }}
+
+Resolution:
+{{ add_phrase(phase_resolution) }}
+
+Ending Before:
+{{ add_phrase(ending_before) }}
+
+Ending:
+{{ add_phrase(ending) }}
+
+First Choice of Act One:
+{{ first_choice_of_act_one.text }}
+{% for choice, phrases in first_choice_of_act_one.choices.items() %}
+    {{ choice }}:
+    {% for phrase in phrases %}
+        - {{ phrase }}
+    {% endfor %}
+{% endfor %}
+
+Second Choice of Act One:
+{{ second_choice_of_act_one.text }}
+{% for choice, phrases in second_choice_of_act_one.choices.items() %}
+    {{ choice }}:
+    {% for phrase in phrases %}
+        - {{ phrase }}
+    {% endfor %}
+{% endfor %}

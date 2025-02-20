@@ -12,11 +12,11 @@ extensions = [
 
 setup(
     name="My Little Master",
-    version="1.5", # Change before updating
-    description="Turn-based management game.",
+    version="1.6", # Change before updating
+    description="Chose-your-own-path game.",
     authors="snoozleEmily" "jluizcalonio",
-    url="https://github.com/snoozleEmily/smy_little_master",
-    # license="GNU GENERAL PUBLIC LICENSE", qual vamos usar ????
+    url="https://github.com/snoozleEmily/my_little_master",
+    license="GNU GENERAL PUBLIC LICENSE",
     install_requires=[
         "numpy>=1.18.0",
         "pygame>=2.0.0",

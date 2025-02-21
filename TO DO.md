@@ -2,11 +2,11 @@ Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 
 
 # To Dos: 
-- [] Brainstorming
+- [X] EMILY E JOÃO - Brainstorming
 - [X] Criar base do projeto
 - [] Criar classe do character
-- [] Implementar jinja2 e estrutura de condições da história
-- [] Sistema de atribuição de valores - nome do MC (lembrei agora, eu posso fazer isso, mas se quiser, a gente faz junto!)
+- [] EMILY - Implementar jinja2 e estrutura de condições da história
+- [] JOÃO - Sistema de atribuição de valores - nome do MC (lembrei agora, eu posso fazer isso, mas se quiser, a gente faz junto!) 
 
 
 # Obervações:

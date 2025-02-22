@@ -15,7 +15,9 @@ import numpy as np
 #        Especificamos que só podem ser usadas letras do alfabeto inglês (já temos um edge case pro algoritmo)
 
 pygame.font.init()
+pygame.display.init()
 
+# ainda preciso fazer o get_names funcionar
 def get_char_name(screen, font=pygame.font.Font(None, 40)):
     char_name = ""
     active = True
@@ -58,50 +60,66 @@ def gen_seed(alphabet_values, char_name):
     if len(char_name) < 20:
         while len(seed) < 20:
             for char in char_name:
-                seed.append(alphabet_values[char])
+                seed.append(alphabet_values[char])  # append os valores atribuídos a cada letra do nome
             additional_seed_values = np.random.randint(0, 9, size=20 - len(seed))
             for seed_val in additional_seed_values:
-                seed.append(seed_val)
-    else:
+                seed.append(seed_val)  # para completar o resto, são gerados valores aleatórios e estes, adicionados à seed
+    else:  # caso o char_name tenha 20 caracteres, usa-se os valores atribuídos às letras
         for char in char_name:
             seed.append(alphabet_values[char])
+
+    return seed
 
 # Ok agora que já consigo gerar a seed,
 # preciso arranjar uma forma de fazer com que a seed afete os atributos
 
+# Essa set_attributes ficou feio demais, depois eu vejo uma forma melhor de fazer essa função
+# mas a lógica é essa.
+# Os prints são só pra testar mesmo, não vou deixar aqui
+
+# Como a seed define os atributos?
+# Minha ideia de uso da seed é simplesmente somar os 5 primeiros números para o primeiro atributo (aura)
+# Depois vou somando os outros em ranges de 5 números subsequentes para cada atributo
+# É algo bem simples, mas precisaríamos definir o mínimo e o máximo de cada atributo
+# pra saber os valores estão muito baixos ou muito altos
+
+# Atualmente o valor mais alto possível para cada atribudo individual é 45, mas é extremamente improvável de acontecer
+# (np.randint de 0 a 9, só vai dar 45 se o gerador de seed conseguir a proeza de retornar valor 9 para todas as letras
+# do char_name)
+def set_attributes(seed, aura_param, spirit_param, psyche_param, fate_param):
+    aura_param, spirit_param, psyche_param, fate_param = 0, 0, 0, 0
+    for seed_val in seed[:4]:
+        aura_param += seed_val
+        print(f"aura + seed_val:{aura_param - seed_val} + {seed_val} = {aura_param}")
+    for seed_val in seed[5:9]:
+        spirit_param += seed_val
+        print(f"spirit + seed_val:{spirit_param - seed_val} + {seed_val} = {spirit_param}")
+    for seed_val in seed[10:14]:
+        psyche_param += seed_val
+        print(f"psyche + seed_val:{psyche_param - seed_val} + {seed_val} = {psyche_param}")
+    for seed_val in seed[15:19]:
+        fate_param += seed_val
+        print(f"fate + seed_val:{fate_param - seed_val} + {seed_val} = {fate_param}")
+    sum_dict = {
+        'aura': aura_param,
+        'spirit': spirit_param,
+        'psyche': psyche_param,
+        'fate': fate_param
+    }
+    return sum_dict
+
 # Teste
-diction = gen_alphabet_values()
+alphabet_values = gen_alphabet_values()
 char_name = str("Nabuco de Cortelha").replace(' ', "")
 print(char_name)
-seed = []
+seed = gen_seed(alphabet_values, char_name)
+sum_dict = set_attributes(seed, 'aura', 'spirit', 'psyche', 'fate')
+print(sum_dict)
 
-def main():
-    alphabet_values = gen_alphabet_values()
-    char_name = get_char_name()
-    gen_seed(alphabet_values, char_name)
-
-
-
-        # isso não faria com que qto mais letras, maior a pontuação?
-        # mas aí é só não depender da quantidade
-        # como não depender da quantidade?
-        # uma seed!
-        # sendo que a cada partida, o valor das letras será diferente
-        # portanto, o jogador não vai poder antecipar as seeds ao escolher um mesmo nome
-        # a seed é de um tamanho único de 20 caracteres
-        # cria-se uma seed = []
-        # se o nome for menor que 20, faz while len(seed) < 20,
-        # adicionando +1 a cada loop em uma variável de contador para controle do while
-        # gerando um número aleatório para o espaço vazio
-        # e gravando (append) esse número na lista da seed
-        # a cada letra do char_name, vai criando um número aleatório com randint para ela
-        # resumindo: a cada caracter, mesmo espaço vazio caso char_name < 20, gera-se um randint para ele
-        # e armazena na lista seed
-
-        # agora, como fazer essa ligação entre seed e skill? Aliás, seria skill ou atributo?
-        # mas isso não importa, o que importa é a lógica
-        # a seed sendo uma lista de números,podemos fazer um random.choice para cada atributo
-
-        # pegar exemplos "Joe" (3) "Theófilo" (8) "Ozymandias Nabucor" (17) para testes
-
-
+# Não sei se deixo essa main... vou comentar ela, acredito que esse name_algorithm pode ser melhor
+# aproveitado sendo importado pelo arquivo que controla a criação de personagem
+# def main():
+#     alphabet_values = gen_alphabet_values()
+#     char_name = get_char_name()
+#     seed = gen_seed(alphabet_values, char_name)
+#     sum_dict = set_attributes(seed, aura, spirit, psyche, fate)

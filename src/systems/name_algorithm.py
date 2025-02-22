@@ -12,15 +12,18 @@ import random
 #   6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai...
 #        Especificamos que só podem ser usadas letras do alfabeto inglês (já temos um edge case pro algoritmo)
 
+
 def get_char_name(screen, font=pygame.font.Font(None, 40)):
     char_name = ""
     active = True
 
     while active:
-        screen.fill ((30, 30, 30))
+        screen.fill((30, 30, 30))
 
         # Show instructions
-        instruction_text = font.render("Type your name (3-20 letters) and press ENTER: ", True, (255, 255, 255))
+        instruction_text = font.render(
+            "Type your name (3-20 letters) and press ENTER: ", True, (255, 255, 255)
+        )
         screen.blit(instruction_text, (50, 50))
 
         # Show typed name
@@ -39,6 +42,7 @@ def get_char_name(screen, font=pygame.font.Font(None, 40)):
                         char_name += char  # 2. Stores inserted name
 
     return str(char_name)
+
 
 def gen_alpha_value(char_name):
     for char in char_name.lower():

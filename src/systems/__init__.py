@@ -1,1 +1,0 @@
-from name_algorithm import get_char_name, gen_alpha_value

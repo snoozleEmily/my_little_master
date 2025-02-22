@@ -1,5 +1,7 @@
 import pygame
 import random
+import string
+import numpy as np
 
 # from random import
 
@@ -12,6 +14,7 @@ import random
 #   6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai...
 #        Especificamos que só podem ser usadas letras do alfabeto inglês (já temos um edge case pro algoritmo)
 
+pygame.font.init()
 
 def get_char_name(screen, font=pygame.font.Font(None, 40)):
     char_name = ""
@@ -41,12 +44,43 @@ def get_char_name(screen, font=pygame.font.Font(None, 40)):
                     if char.isalpha:  # 1. Only accepts letters
                         char_name += char  # 2. Stores inserted name
 
-    return str(char_name)
+    return str(char_name.strip().replace(' ', ""))
+
+def gen_alphabet_values():
+    """Gera um dicionário com valores aleatórios para cada letra do alfabeto."""
+    letters = list(string.ascii_lowercase)  # Alfabeto em minúsculas
+    values = np.random.randint(0, 9, size=len(letters))
+    return dict(zip(letters, values))
+
+def gen_seed(alphabet_values, char_name):
+    seed = []
+    char_name = char_name.lower().strip().replace(' ', "")
+    if len(char_name) < 20:
+        while len(seed) < 20:
+            for char in char_name:
+                seed.append(alphabet_values[char])
+            additional_seed_values = np.random.randint(0, 9, size=20 - len(seed))
+            for seed_val in additional_seed_values:
+                seed.append(seed_val)
+    else:
+        for char in char_name:
+            seed.append(alphabet_values[char])
+
+# Ok agora que já consigo gerar a seed,
+# preciso arranjar uma forma de fazer com que a seed afete os atributos
+
+# Teste
+diction = gen_alphabet_values()
+char_name = str("Nabuco de Cortelha").replace(' ', "")
+print(char_name)
+seed = []
+
+def main():
+    alphabet_values = gen_alphabet_values()
+    char_name = get_char_name()
+    gen_seed(alphabet_values, char_name)
 
 
-def gen_alpha_value(char_name):
-    for char in char_name.lower():
-        char = random.randint
 
         # isso não faria com que qto mais letras, maior a pontuação?
         # mas aí é só não depender da quantidade
@@ -56,7 +90,7 @@ def gen_alpha_value(char_name):
         # portanto, o jogador não vai poder antecipar as seeds ao escolher um mesmo nome
         # a seed é de um tamanho único de 20 caracteres
         # cria-se uma seed = []
-        # se o nome for menor que 20, faz while len(char_name) < 20,
+        # se o nome for menor que 20, faz while len(seed) < 20,
         # adicionando +1 a cada loop em uma variável de contador para controle do while
         # gerando um número aleatório para o espaço vazio
         # e gravando (append) esse número na lista da seed
@@ -69,3 +103,5 @@ def gen_alpha_value(char_name):
         # a seed sendo uma lista de números,podemos fazer um random.choice para cada atributo
 
         # pegar exemplos "Joe" (3) "Theófilo" (8) "Ozymandias Nabucor" (17) para testes
+
+

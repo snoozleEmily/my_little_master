@@ -6,7 +6,8 @@ Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 - [X] Criar base do projeto
 - [] Criar classe do character
 - [] EMILY - Implementar jinja2 e estrutura de condições da história
-- [] JOÃO - Sistema de atribuição de valores - nome do MC (lembrei agora, eu posso fazer isso, mas se quiser, a gente faz junto!) 
+- [] JOÃO - name_algorithm
+    - [] fazer o get_names funcionar
 
 
 # Obervações:

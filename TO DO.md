@@ -5,6 +5,8 @@ Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 - [X] EMILY E JOÃO - Brainstorming
 - [X] Criar base do projeto
 - [] Criar classe do character
+- [] Estruturar a lógica de erros
+    - [] Criar pastas default err message
 - [] EMILY - Implementar jinja2 e estrutura de condições da história
 - [] JOÃO - name_algorithm
     - [] fazer o get_names funcionar

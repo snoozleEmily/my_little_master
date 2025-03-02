@@ -1,0 +1,134 @@
+{
+        "aura": [
+          [
+            "Your presence shimmers like a mirage of ancient wonder.",
+            {
+              "id_1": "The very fabric of fate bends in reverence to your luminous aura.",
+              "id_2": "A subtle glow surrounds you, a quiet echo of potential yet unfulfilled.",
+              "id_3": "The light within you flickers feebly, barely stirring the shadows of destiny."
+            }
+          ],
+          [
+            "A silent radiance envelops you, hinting at mysteries untold.",
+            {
+              "id_4": "Celestial forces awaken at your approach, anointed by the glow of the chosen.",
+              "id_5": "The radiance is present, modest and uncertain in its power.",
+              "id_6": "Your light is but a faint glimmer, lost amid the vast expanse of time."
+            }
+          ],
+          [
+            "The cosmos stirs at the whisper of your being.",
+            {
+              "id_7": "Stars realign in your honor, marking you as a beacon of divine fortune.",
+              "id_8": "The celestial dance acknowledges your presence, though its tune remains muted.",
+              "id_9": "The heavens pass indifferently, their brilliance overshadowing your fleeting spark."
+            }
+          ]
+        ],
+        "spirit": [
+          [
+            "A flame burns within you, undimmed by the passage of ages.",
+            {
+              "id_10": "Your spirit blazes like a sacred inferno, commanding respect from immortal fires.",
+              "id_11": "A steady burn resides in you, unremarkable yet ever-present.",
+              "id_12": "The flame within sputters weakly, struggling to kindle the fire of destiny."
+            }
+          ],
+          [
+            "Your soul carries the weight of timeless passion.",
+            {
+              "id_13": "Ancient voices sing in harmony with your spirit, heralding your unwavering resolve.",
+              "id_14": "There is warmth in your soul, modest and quietly persistent.",
+              "id_15": "The fire in your soul dwindles like a dying ember, barely lighting the dark."
+            }
+          ],
+          [
+            "In the crucible of trials, your spirit endures.",
+            {
+              "id_16": "You are the steadfast flame that forges legends, a paragon of indomitable will.",
+              "id_17": "Your endurance is clear, though the blaze of your spirit remains unremarkable.",
+              "id_18": "The trials have dimmed your inner fire, leaving but a whisper of lost potential."
+            }
+          ]
+        ],
+        "psych": [
+          [
+            "Your mind is an intricate labyrinth, a realm of endless possibility.",
+            {
+              "id_19": "Wisdom flows to you like a sacred river, unveiling secrets to a discerning soul.",
+              "id_20": "Your intellect hums steadily, a reliable beacon amid swirling mysteries.",
+              "id_21": "The corridors of your mind echo emptily, lost in shadows of doubt."
+            }
+          ],
+          [
+            "Thoughts weave like ancient tapestries within your consciousness.",
+            {
+              "id_22": "Every thread of insight glimmers with revelation, crowning you a sage among mortals.",
+              "id_23": "There is order in your musings, though true brilliance remains just out of reach.",
+              "id_24": "Your ideas tangle into a web of uncertainty, failing to grasp the light of truth."
+            }
+          ],
+          [
+            "Mysteries beckon from the hidden corners of existence.",
+            {
+              "id_25": "The veil parts before you, revealing secrets that crown you with luminous wisdom.",
+              "id_26": "Some enigmas yield to your inquiry, while others stay cloaked in twilight.",
+              "id_27": "Riddles confound you, their cryptic nature leaving you adrift in uncertainty."
+            }
+          ]
+        ],
+        "karma": [
+          [
+            "Fate weaves its tapestry around you, each thread pulsing with ancient promise.",
+            {
+              "id_28": "Destiny honors your every step, anointing you as a master weaver of fate.",
+              "id_29": "The threads tug at your being gently, a modest pull of inevitability.",
+              "id_30": "The strands of fate slip through your grasp, mocking your every attempt."
+            }
+          ],
+          [
+            "An unseen current guides your journey, the echoes of fate ever-present.",
+            {
+              "id_31": "The cosmic order bends to your will, heralding your path as divinely ordained.",
+              "id_32": "A subtle pull of destiny accompanies you, neither strong nor insubstantial.",
+              "id_33": "Your steps falter in the tide of fate, a series of missteps in an endless current."
+            }
+          ],
+          [
+            "The dance of destiny surrounds you, a rhythm as old as time.",
+            {
+              "id_34": "Your movements resonate with the power of divine orchestration, a true marvel of fate.",
+              "id_35": "Your dance with destiny is measured, a blend of promise and uncertainty.",
+              "id_36": "You misstep in the eternal ballet, a discordant note in the song of fate."
+            }
+          ]
+        ],
+        "vitality": [
+          [
+            "Life’s energy pulses through you, vibrant as the first light of dawn.",
+            {
+              "id_37": "You embody the essence of creation, a radiant force that enlivens all around you.",
+              "id_38": "A steady rhythm beats within you, constant yet unremarkable.",
+              "id_39": "Your vitality wanes like a dying ember, a shadow of unfulfilled potential."
+            }
+          ],
+          [
+            "The very pulse of existence courses through your veins.",
+            {
+              "id_40": "Every heartbeat sings a hymn of life, a testament to your boundless vigor.",
+              "id_41": "Your pulse remains steady, a quiet cadence within the symphony of existence.",
+              "id_42": "Your heart falters, its rhythm lost in the silence of a forgotten song."
+            }
+          ],
+          [
+            "You are the current of life, a force that sculpts the contours of destiny.",
+            {
+              "id_43": "Your energy flows unceasingly, a torrent that reshapes the world with each surge.",
+              "id_44": "There is a persistent flow in you, a simple stream in the vast river of life.",
+              "id_45": "The current of your being is feeble, a mere trickle that fails to stir the stagnant depths."
+            }
+          ]
+        ]
+      }
+    
+  

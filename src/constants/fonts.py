@@ -1,8 +1,8 @@
 import os
 import pygame
 
-from .project_config import BASE_DIR
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATES_DIR = os.path.join(BASE_DIR, "..", "..", "..", "data", "assets", "fonts")
 
 FONT_DEFAULT = pygame.font.Font(
     os.path.join(BASE_DIR, "fonts"), 28  # Baby Doll

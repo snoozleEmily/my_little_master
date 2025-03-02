@@ -1,10 +1,14 @@
 import pygame
 
-from core.display_manager import DisplayManager
+
+
 from core.key_controls import KeyControls
+from core.display_manager import DisplayManager
 from core.sound_controller import SoundController
 from constants.colors import BACKGROUND_COLOR
 from constants.project_config import WIDTH, HEIGHT
+
+
 
 
 def main():

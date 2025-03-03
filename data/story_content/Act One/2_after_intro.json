@@ -1,5 +1,5 @@
 {
-    "id_1": "You are in {place} looking for {choice}. Yet you find nothing. The silence of the place makes you shiver as your loneliness seeks company.",
+    "id_1": "You are in {place} looking for {choice}. Yet you find {item} instead. The silence of the place makes you shiver as your loneliness seeks company.",
     "id_2": "You are in {place} looking for {choice}. You find a {item}. Such a thing is not what you were looking for, but it makes you recall untold stories.",
     "id_3": "You work in {place} selling things one shouldn't speak of. You find {item} hiding among dust and wooden pallets. In your heart, you know that you need to {choice}.",
     "id_4": "You live in {place} gathering things one shouldn't think of. Having {item} with you guides you to {choice}.",

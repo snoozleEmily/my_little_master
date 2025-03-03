@@ -1,0 +1,19 @@
+{
+    "intro_action": "{period_past}, you finally understood what the scribbles of text on one page of The Black Cat Grimoire meant. It mentioned great power from one of the twelve gods.",
+    "chosen_god": "'If you wish for strength, seek Abend Diabolos Pwuhn, for he is the Unyielding Forge.'",
+    "development": {
+        "id_1": "The writings were clear; you must resurrect the first servant of {god_name} and accept his pact to achieve what you desire.",
+        "id_2": "Only through the ancient rites can the servant of {god_name} be awakened. The price of power is never without sacrifice.",
+        "id_3": "An offering must be made at the altar of {god_name}. The echoes of forgotten prayers will guide you.",
+        "id_4": "The ritual requires a vessel worthy of {god_name}'s essence. Without it, the pact cannot be sealed.",
+        "id_5": "To prove your devotion, you must walk the path of trials set by {god_name}. Only then will the first servant rise.",
+        "id_6": "The stars align, signaling the time to act. Call upon {god_name}'s first servant, and he shall answer."
+    },
+    "rising_action": {
+        "id_1": "Your choice has been made. With {item} in hand, you start organizing the altar of the first servant just as you read. You perform the ritual as the Grimoire described: {ritual_action}",
+        "id_2": "The sacrifice is inevitable. The ritual demands a price, one that cannot be undone. With steady hands, you prepare the offering at the altar: {ritual_action}",
+        "id_3": "An offering must be given. You kneel before the altar, whispering the sacred prayers, feeling an unseen force listening to your devotion: {ritual_action}",
+        "id_4": "The air grows heavy as you complete the final preparations. The sigils glow faintly, you proceed with the ritual: {ritual_action}",
+        "id_5": "To call upon the first servant, you must abandon fear. With a deep breath, you invoke the name that has long been forgotten, performing the ritual: {ritual_action}"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "altar_action": {
+        "id_1": "Light seven black candles in a circle, the seventh one in the middle with one pound of salt around it.",
+        "id_2": "Set two hundred and seven obsidian stones forming a pentagon.",
+        "id_3": "Place the item from your hand in the center of the altar, its essence reflecting the candlelight.",
+        "id_4": "Arrange thirteen crimson roses in a spiral, each petal dipped in anointing oil.",
+        "id_5": "Lay a dagger with a blackened blade at the heart of the altar, its edge still warm from ritual use.",
+        "id_6": "Drizzle a mixture of honey and blood upon the altar, whispering the name of the one you seek.",
+        "id_7": "Encircle the altar with a cord woven from raven feathers and human hair.",
+        "id_8": "Smash a clay vessel filled with graveyard dirt upon the altar's surface.",
+        "id_9": "Place a mirror facing upward on the altar, its glass reflecting nothing but darkness.",
+        "id_10": "Burn a parchment inscribed with a forgotten name, letting the ashes scatter over the altar."
+    },
+    "altar_description": {
+        "id_1": "Mint leaves and rose petals are scattered around the altar, the scent of incense fills the room.",
+        "id_2": "Twelve decapitated chickens surround you and the altar.",
+        "id_3": "Ancient symbols are etched into the floor, glowing faintly under the chill of the night.",
+        "id_4": "The cheap wooden altar from Ecat is covered in dirt.",
+        "id_5": "The self-made triangular structure made of bones crackles.",
+        "id_6": "A circle of melted wax and dried blood stains the surface of the altar, marking past rituals.",
+        "id_7": "A silver bowl sits at the altar's center, filled with water that ripples without cause.",
+        "id_8": "The altar is veiled in tattered black cloth, its edges burned from past invocations.",
+        "id_9": "Scattered bones and rusted nails lie upon the altar, humming with latent energy.",
+        "id_10": "A serpent coils around the base of the altar, its unblinking gaze locked onto you."
+    },
+    "ritual_action": {
+        "id_1": "Carving the sigil of the Black Cat onto your palm with your own nails, letting a single drop of blood fall upon the altar, you feel a chill run down your spine.",
+        "id_2": "Chanting the invocation inscribed within The Black Cat Grimoire while the candle flames flicker in response, you feel a presence watching you.",
+        "id_3": "Mixing ash and wine in a ceremonial bowl, you trace arcane symbols upon your forehead with trembling fingers, the air growing heavy with power.",
+        "id_4": "Gazing into a black mirror, you whisper forgotten names, your reflection shifting with an unnatural distortion, a voice echoing in your mind.",
+        "id_5": "You press your fingertips into the warm wax of a candle, letting the heat sear your intent into reality.",
+        "id_6": "Crushing a dried flower between your palms, you breathe in the dust and feel an unfamiliar presence stir.",
+        "id_7": "Dripping wax onto your wrist, you let it harden before peeling it away in silent devotion.",
+        "id_8": "Tearing a strand of hair from your own head, you tie it around a rusted iron nail and bury it within the altar.",
+        "id_9": "Reciting the ancient verses in a language you barely understand, the shadows around you grow darker.",
+        "id_10": "Plunging your hands into a bowl of cold water, the reflections twist, showing glimpses of things yet to come."
+    }
+}

@@ -1,0 +1,4 @@
+{# Act One After Introduction Logic #}
+{% set after_intro = af_intros.values() | list | random %}
+
+{{ scenario.format(place=place, item=item,coice=choice()) }}

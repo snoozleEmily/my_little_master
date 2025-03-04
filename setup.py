@@ -12,7 +12,7 @@ extensions = [
 
 setup(
     name="My Little Master",
-    version="1.6", # Change before updating
+    version="0.6", # Change before updating
     description="Chose-your-own-path game.",
     authors="snoozleEmily" "jluizcalonio",
     url="https://github.com/snoozleEmily/my_little_master",

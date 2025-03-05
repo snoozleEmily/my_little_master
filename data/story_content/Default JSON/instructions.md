@@ -1,4 +1,4 @@
-# How should the JSON files be?
+# How should the JSON files be? [WIP]
 
 ## For the MVP
 For now, we can have two choices per chapter (act), and when we choose to expand the game, we can add more.

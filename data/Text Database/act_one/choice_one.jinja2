@@ -1,0 +1,7 @@
+{{ choice_one.question }}
+{% for key, option in choice_one.options.items() %}
+{{ loop.index }}. {{ option.text }}
+{% endfor %}
+
+{# Later, when consequence is needed #}
+{{ choice_one.options[selected_choice].consequence }}

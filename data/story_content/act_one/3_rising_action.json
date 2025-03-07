@@ -15,5 +15,22 @@
         "id_3": "An offering must be given. You kneel before the altar, whispering the sacred prayers, feeling an unseen force listening to your devotion: {ritual_action}",
         "id_4": "The air grows heavy as you complete the final preparations. The sigils glow faintly, you proceed with the ritual: {ritual_action}",
         "id_5": "To call upon the first servant, you must abandon fear. With a deep breath, you invoke the name that has long been forgotten, performing the ritual: {ritual_action}"
+    },
+  "choice_one": {
+    "question": "Tak Tak tilts his head. 'Little flesh-bag thinks to serve the Unyielding Forge?' Ash falls from his reconstructed body as he leans closer. 'Speak. Why should I not grind your bones for mortar? Why should I allow you small fly to adore holy Abend?'",
+    "options": {
+      "id_1": {
+        "text": "I have endured suffering no mortal should bear - let my scars speak my devotion",
+        "consequence": "'Oh, you do not know pain. I shall show you true suffering, my underling. I will perform a spell to teleport you into a hidden cave no mortal soul has stepped on. You will only return after your devotion is proven.'"
+      },
+      "id_2": {
+        "text": "I sacrificed what I loved most to prove my worth - let this hollow space I call heart be my altar",
+        "consequence": "'Then I shall demand nothing of value... only eternal suffering. Go to the eastern hidden cave and drink deeply from its black lake.'"
+      },
+      "id_3": {
+        "text": "My tears built this misery I call life - let my eyes peek into the abyss",
+        "consequence": "'Your disgrace might be rewarded. Bring seventy-seven pounds of shore-sand - not from the sea, but from within a hidden cave. You'll find it... somewhere.' A crumbling map materializes in your hand."
+      }
     }
+  }
 }

@@ -4,12 +4,15 @@ Vamos ir escrevendo aqui as tarefas que precisamos fazer (em ptBR mesmo):
 # To Dos: 
 - [X] EMILY E JOÃO - Brainstorming
 - [X] Criar base do projeto
-- [] Criar classe do character
+- [] JOÃO - Criar classe do character MVP - in progress
+- [] JOÃO - Criar arte do Little Master Tak Tak para o MVP
+- [] JOÃO - Criar música intro - in progress
 - [] Estruturar a lógica de erros
     - [] Criar pastas default err message
 - [] EMILY - Implementar jinja2 e estrutura de condições da história
-- [] JOÃO - name_algorithm
-    - [] fazer o get_names funcionar
+- [] EMILY - Criar algoritmo do nome / alternativa ao quantum letter matrix
+- ~[] JOÃO - name_algorithm~ Emily vai fazer o algoritmo
+    - ~[] fazer o get_names funcionar~
 
 
 # Obervações:

@@ -3,16 +3,25 @@ import random
 import string
 import numpy as np
 
-# from random import
+# Temos 26 letras no alfabeto (inglês), certo?!
+# Se arredondarmos para 25, vamos ter uma conta perfeita!
 
-# 1. Só aceita letras.
-# 2. Guardamos o nome inserido.
-# 3. Copiamos o valor dessa var em outra
-# 4. Colocamos todas as letras em lowercase
-# 5. Criamos um alfabeto todo lower case
-# 6. No começo de cada novo jogo o algoritmo designa valores aleatórios para cada letra.
-#   6.1. Tipo: A letra "y" em uma partida vale 5, mas em uma outra vale "0" e por aí vai...
-#        Especificamos que só podem ser usadas letras do alfabeto inglês (já temos um edge case pro algoritmo)
+# 1. Atributos:  Teremos 5 atributos no total.
+
+# 2. Preparação do Alfabeto:  Vamos excluir uma letra aleatória. Assim, ficamos com 25 letras.
+
+# 3. Divisão em Grupos:  As 25 letras resultantes são divididas aleatoriamente em 5 grupos de 5 letras cada.
+
+# 4. Atribuição de Valores às Letras:  Cada letra deve ter um valor atribuído, que é um número aleatório de 1 a 10.
+# Se em algum grupo alguma das 5 letras ainda não tiver um valor, será randomizado um valor de 1 a 10 para essa letra,
+# repetindo o processo até que todas as letras tenham um valor.
+# Observação: Caso uma letra apareça mais de uma vez no nome (input do usuário), o valor dessa letra é considerado apenas uma vez.
+
+# 5. Cálculo dos Pontos por Grupo:  Para cada grupo, soma-se os valores das letras que aparecem no nome do usuário.
+
+# 6. Multiplicação e Limite de Pontuação:  A soma obtida para cada grupo é multiplicada por 2.  O resultado final para cada atributo não pode ultrapassar 100 pontos.
+
+# Ex:  grupo_1 =[A, G, O, J, R]   Random: A=3, G=9, O=1, J=5, R=10  Soma A+G+O+J+R = 27  Multiplica resultado_soma * 2 = 54
 
 pygame.font.init()
 pygame.display.init()
@@ -48,78 +57,22 @@ def get_char_name(screen, font=pygame.font.Font(None, 40)):
 
     return str(char_name.strip().replace(' ', ""))
 
+# 2. Preparação do Alfabeto:  Vamos excluir uma letra aleatória. Assim, ficamos com 25 letras.
 def gen_alphabet_values():
     """Gera um dicionário com valores aleatórios para cada letra do alfabeto."""
     letters = list(string.ascii_lowercase)  # Alfabeto em minúsculas
-    values = np.random.randint(0, 9, size=len(letters))
+    letters.remove(random.choice(letters))
+    values = np.random.randint(1, 10, size=len(letters))
     return dict(zip(letters, values))
 
-def gen_seed(alphabet_values, char_name):
-    seed = []
-    char_name = char_name.lower().strip().replace(' ', "")
-    if len(char_name) < 20:
-        while len(seed) < 20:
-            for char in char_name:
-                seed.append(alphabet_values[char])  # append os valores atribuídos a cada letra do nome
-            additional_seed_values = np.random.randint(0, 9, size=20 - len(seed))
-            for seed_val in additional_seed_values:
-                seed.append(seed_val)  # para completar o resto, são gerados valores aleatórios e estes, adicionados à seed
-    else:  # caso o char_name tenha 20 caracteres, usa-se os valores atribuídos às letras
-        for char in char_name:
-            seed.append(alphabet_values[char])
+# 3. Divisão em Grupos:  As 25 letras resultantes são divididas aleatoriamente em 5 grupos de 5 letras cada.
 
-    return seed
 
-# Ok agora que já consigo gerar a seed,
-# preciso arranjar uma forma de fazer com que a seed afete os atributos
-
-# Essa set_attributes ficou feio demais, depois eu vejo uma forma melhor de fazer essa função
-# mas a lógica é essa.
-# Os prints são só pra testar mesmo, não vou deixar aqui
-
-# Como a seed define os atributos?
-# Minha ideia de uso da seed é simplesmente somar os 5 primeiros números para o primeiro atributo (aura)
-# Depois vou somando os outros em ranges de 5 números subsequentes para cada atributo
-# É algo bem simples, mas precisaríamos definir o mínimo e o máximo de cada atributo
-# pra saber os valores estão muito baixos ou muito altos
-
-# Atualmente o valor mais alto possível para cada atribudo individual é 45, mas é extremamente improvável de acontecer
-# (np.randint de 0 a 9, só vai dar 45 se o gerador de seed conseguir a proeza de retornar valor 9 para todas as letras
-# do char_name)
-def set_attributes(seed, aura_param, spirit_param, psyche_param, fate_param):
-    aura_param, spirit_param, psyche_param, fate_param = 0, 0, 0, 0
-    for seed_val in seed[:4]:
-        aura_param += seed_val
-        print(f"aura + seed_val:{aura_param - seed_val} + {seed_val} = {aura_param}")
-    for seed_val in seed[5:9]:
-        spirit_param += seed_val
-        print(f"spirit + seed_val:{spirit_param - seed_val} + {seed_val} = {spirit_param}")
-    for seed_val in seed[10:14]:
-        psyche_param += seed_val
-        print(f"psyche + seed_val:{psyche_param - seed_val} + {seed_val} = {psyche_param}")
-    for seed_val in seed[15:19]:
-        fate_param += seed_val
-        print(f"fate + seed_val:{fate_param - seed_val} + {seed_val} = {fate_param}")
-    sum_dict = {
-        'aura': aura_param,
-        'spirit': spirit_param,
-        'psyche': psyche_param,
-        'fate': fate_param
-    }
-    return sum_dict
-
-# Teste
-alphabet_values = gen_alphabet_values()
-char_name = str("Nabuco de Cortelha").replace(' ', "")
-print(char_name)
-seed = gen_seed(alphabet_values, char_name)
-sum_dict = set_attributes(seed, 'aura', 'spirit', 'psyche', 'fate')
-print(sum_dict)
-
-# Não sei se deixo essa main... vou comentar ela, acredito que esse name_algorithm pode ser melhor
-# aproveitado sendo importado pelo arquivo que controla a criação de personagem
-# def main():
-#     alphabet_values = gen_alphabet_values()
-#     char_name = get_char_name()
-#     seed = gen_seed(alphabet_values, char_name)
-#     sum_dict = set_attributes(seed, aura, spirit, psyche, fate)
+letters = list(string.ascii_lowercase)  # Alfabeto em minúsculas
+print(letters)
+letters.remove(random.choice(letters))
+values = np.random.randint(1, 10, size=len(letters))
+print(letters)
+print(values)
+dict_test = dict(zip(letters, values))
+print(dict_test)

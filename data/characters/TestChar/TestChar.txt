@@ -1,0 +1,15 @@
+
+TestChar has perished.
+
+TestChar has perished.
+
+TestChar has perished.
+
+TestChar has perished.
+Test Event
+Option A
+{'attribute': 'vitality', 'value': -3}
+
+TestChar has perished.
+
+TestChar has perished.

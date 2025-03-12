@@ -13,27 +13,27 @@ import event
 # pra montar o Graveyard e também pode mostrar na tela de game over.
 
 
-
 class MainCharacter:
     def __init__(self, char_name, aura, spirit, psych, karma, vitality):
         self.char_name = char_name
 
         self.attributes = {
-            'aura': aura,
-            'spirit': spirit,
-            'psych': psych,
-            'karma': karma,
-            'vitality': vitality
+            "aura": aura,
+            "spirit": spirit,
+            "psych": psych,
+            "karma": karma,
+            "vitality": vitality,
         }
 
         self.life_choices = []
 
         self.is_alive = True
 
-        self.base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        self.base_dir = os.path.dirname(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        )
         self.char_dir = os.path.join(self.base_dir, "data", "characters", char_name)
         self.file_path = os.path.join(self.char_dir, f"{self.char_name}.txt")
-
 
         os.makedirs(self.char_dir, exist_ok=True)
 
@@ -42,7 +42,9 @@ class MainCharacter:
             with open(self.file_path, "w") as char_hist_file:
                 char_hist_file.write(f"{char_name}'s Life History\n")
 
-    def check_status(self):  # Checks if all attributes > 0, else it's false and char is dead
+    def check_status(
+        self,
+    ):  # Checks if all attributes > 0, else it's false and char is dead
         self.is_alive = all(value > 0 for value in self.attributes.values())
 
         if not self.is_alive:
@@ -59,23 +61,47 @@ class MainCharacter:
         self.attributes[str_attribute] -= number
         self.check_status()
 
-    def make_choice(self, event, choice, consequence):
-        choice = choice
+    def make_choice(self, event, choice_index):
+        """
+        Handles the character's choice during an event, records the choice and consequence,
+        and updates the character's attributes based on the consequence.
 
-        return choice
+        Args:
+            event (SingleEvent): The event object containing choices and consequences.
+            choice_index (int): The index of the chosen option in the event's choices list.
 
-    def char_history(self, event):
-        choice_dict = {
-            'event_title': event.title,
-            'event_choice': event.choice,
-            'consequence': event.consequence
-        }
+        Returns:
+            str: The chosen option.
 
-        self.life_choices.append(choice_dict)
+        Raises:
+            ValueError: If the choice_index is out of bounds for the event's choices list.
+        """
+        if 0 <= choice_index < len(event.choices):
+            choice = event.choices[choice_index]
+            consequence = event.consequences[choice_index]
 
-        self.process_life_choices()
+            # Store the event details
+            choice_dict = {
+                "event_title": event.title,
+                "event_choice": choice,
+                "consequence": consequence,
+            }
 
-        return self.life_choices
+            self.life_choices.append(choice_dict)
+            self.process_life_choices()
+
+            if isinstance(consequence, dict):
+                attribute = consequence.get("attribute") # Attribute to modify (e.g., "vitality")
+                value = consequence.get("value") # Value to add/subtract from the attribute
+                if value > 0: # Increase
+                    self.increase_attribute(attribute, value)
+                else: # Decrease
+                    self.decrease_attribute(attribute, abs(value))
+            return choice
+        else:
+            raise ValueError("Invalid choice index")
+
+    
 
     def process_life_choices(self):
         if not self.life_choices:
@@ -84,47 +110,50 @@ class MainCharacter:
         last_choice = self.life_choices[-1]
 
         with open(self.file_path, "a") as char_hist_file:
-            char_hist_file.write(f"{last_choice['event_title']}\n"
-                                 f"{last_choice['event_choice']}\n"
-                                 f"{last_choice['consequence']}\n")
+            char_hist_file.write(
+                f"{last_choice['event_title']}\n"
+                f"{last_choice['event_choice']}\n"
+                f"{last_choice['consequence']}\n"
+            )
 
 
-#'''
-# ******************* TESTS *******************
-# init MainCharacter OK
-test_char = MainCharacter("TestChar", 1, 2, 1, 4, 5)
+if __name__  == "__main__":
 
-# check_status OK
-print(f"check_status: {test_char.check_status()}") # Expected: True Actual: True
+    # ******************* TESTS *******************
+    # init MainCharacter OK
+    test_char = MainCharacter("TestChar", 1, 2, 1, 4, 5)
 
-# increase_attribute OK
-print(f"psych: {test_char.attributes['psych']}") # Expected: 1 Actual: 1
-test_char.increase_attribute('psych', 5)
-print(f"psych after increase: {test_char.attributes['psych']}") # Expected: 5 Actual: 5
+    # check_status OK
+    print(f"check_status: {test_char.check_status()}")  # Expected: True Actual: True
 
-# decrease_attribute OK
-print(f"vitality: {test_char.attributes['vitality']}") # Expected: 5 Actual: 5
-test_char.decrease_attribute('vitality', 2)
-print(f"vitality after decrease: {test_char.attributes['vitality']}") # Expected: 3 Actual: 3
+    # increase_attribute OK
+    print(f"psych: {test_char.attributes['psych']}")  # Expected: 1 Actual: 1
+    test_char.increase_attribute("psych", 5)
+    print(
+        f"psych after increase: {test_char.attributes['psych']}"
+    )  # Expected: 5 Actual: 5
 
-# char_history
-choices_list = ['Option A', 'Option B']
+    # decrease_attribute OK
+    print(f"vitality: {test_char.attributes['vitality']}")  # Expected: 5 Actual: 5
+    test_char.decrease_attribute("vitality", 2)
+    print(
+        f"vitality after decrease: {test_char.attributes['vitality']}"
+    )  # Expected: 3 Actual: 3
 
-consequence_option_a = test_char.decrease_attribute("vitality", 3)
-consequence_option_b = test_char.increase_attribute("vitality", 1)
-consequences_list = [consequence_option_a, consequence_option_b]
+    choices_list = ["Option A", "Option B"]
 
-test_event = event.SingleEvent("Test Event",
-                               "This is a test event's description",
-                               "Image",
-                               choices_list[0],
-                               consequences_list[0])
+    consequences_list = [
+        {"attribute": "vitality", "value": -3},
+        {"attribute": "vitality", "value": 1},
+    ]
+    test_event = event.SingleEvent(
+        title="Test Event",
+        description="This is a test event's description",
+        image="Image",
+        choices=choices_list,
+        consequences=consequences_list,
+    )
 
-test_char.char_history(test_event)
-test_char.check_status()
-
-
-
-
-
-#'''
+    # Simulate making a choice (Option A)
+    test_char.make_choice(test_event, 0) # 0 = A
+    test_char.check_status()

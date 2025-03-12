@@ -10,3 +10,17 @@ from character import MainCharacter
 #      Considerar a implementação de clear cache e 
 #      salvar os arquivos de histórico em outro lugar,
 #      como um arquivo de texto separado, por exemplo]
+
+
+# Será que o graveyard poderia ser uma subclasse de MainCharacter?
+def char_history(self, event):
+        choice_dict = {
+            "event_title": event.title,
+            "event_choice": event.choice,
+            "consequence": event.consequence,
+        }
+
+        self.life_choices.append(choice_dict)
+        self.process_life_choices()
+
+        return self.life_choices

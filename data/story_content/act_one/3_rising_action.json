@@ -14,11 +14,25 @@
         "id_2": "The sacrifice is inevitable. The ritual demands a price, one that cannot be undone. With steady hands, you prepare the offering at the altar: {ritual_action}",
         "id_3": "An offering must be given. You kneel before the altar, whispering the sacred prayers, feeling an unseen force listening to your devotion: {ritual_action}",
         "id_4": "The air grows heavy as you complete the final preparations. The sigils glow faintly, you proceed with the ritual: {ritual_action}",
-        "id_5": "To call upon the first servant, you must abandon fear. With a deep breath, you invoke the name that has long been forgotten, performing the ritual: {ritual_action}"
+        "id_5": "To call upon the first servant, you must abandon fear. With a deep breath, you invoke the name that has long been forgotten, performing the ritual: {ritual_action}",
+        "id_6": "The moment has come. With {item} clutched tightly, you step forward to the altar, your voice steady as you begin the ritual: {ritual_action}.",
+        "id_7": "Unknown words echo in your mind as you prepare the altar. The weight of the ritual presses upon you, but you proceed without hesitation: {ritual_action}.",
+        "id_8": "The altar awaits, and the time is now. With {item} in hand, you channel your will into the ritual, each step precise and deliberate: {ritual_action}.",
+        "id_9": "The ancient words spill from your lips as you stand before the altar. The ritual demands focus, and you give it your all: {ritual_action}.",
+        "id_10": "The sigils on the altar pulse with energy as you begin. With {item} as your guide, you perform the ritual with unwavering determination: {ritual_action}.",
+        "id_11": "The ritual is clear in your mind. You place {item} upon the altar, your hands trembling slightly as you begin the sacred act: {ritual_action}.",
+        "id_12": "The altar calls to you, and you answer. With {item} as your offering, you step into the unknown, performing the ritual: {ritual_action}."
     },
     "after_choice": {
         "id_1": "Your journey has only begun for you are now bound to Tak Tak, the first servant of the god Abend. You seek {first_choice}.",
         "id_2": "You are now the servant of Tak Tak, the servant of Abend Diabolos Pwuhn. You must fulfill the pact you made with him since you seek {first_choice}.",
-        "id_3": "The pact is sealed, and you are now the vessel of Tak Tak, the first servant of Abend Diabolos Pwuhn. You must fulfill your end of the bargain since you seek {first_choice}."
+        "id_3": "The pact is sealed, and you are now the vessel of Tak Tak, the first servant of Abend Diabolos Pwuhn. You must fulfill your end of the bargain since you seek {first_choice}.",
+        "id_4": "Bound by the sacred pact, you now serve Tak Tak, the foremost servant of Abend Diabolos Pwuhn. Your path is set, for you seek {first_choice}.",
+        "id_5": "The bond is unbreakable, and you are now the chosen of Tak Tak, servant of Abend Diabolos Pwuhn. Your destiny is tied to the pact, as you seek {first_choice}.",
+        "id_6": "Tak Tak, the first servant of Abend, has claimed you as his own. The pact is eternal, and your quest for {first_choice} has just begun.",
+        "id_7": "You are now bound to Tak Tak, the loyal servant of Abend Diabolos Pwuhn. The pact demands your loyalty, for you seek {first_choice}.",
+        "id_8": "The pact with Tak Tak, servant of Abend, is sealed. Your fate is intertwined with his, and your pursuit of {first_choice} is now your purpose.",
+        "id_9": "Tak Tak, the first servant of Abend Diabolos Pwuhn, has chosen you. The pact is your burden, and your quest for {first_choice} is your destiny.",
+        "id_10": "You are now the vessel of Tak Tak, servant of Abend. The pact binds you, and your journey for {first_choice} has only just begun."
     }
 }

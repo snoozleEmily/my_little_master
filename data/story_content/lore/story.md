@@ -43,9 +43,10 @@ Her voice was the crash of waves, her breath the howling of the wind. Goddess of
 
 ---  
 
-You close the book, with your mind reeling with the weight of ancient knowledge. Who were these gods? You wonder. 
+The Black Cat grimore the sacrate script which evokes the gods’ unspoken agreement and their eternal influence, has written `The status of cats in Egypt was such that they were often mummified and buried with honors similar to those given to humans. Proof that mortals once knew their place—as pawns in a game played by twelve hands, their servants the true architects of history.` The reeling weight of ancient knowledge it holds. 
 
-Were they mere myth, or had their hands once truly shaped the world? I whish I could {choice}
+- [Who were these gods?] Were they creators, or parasites feeding on mortal belief? Stories claim they abandoned the world. Yet the cats’ burial rites—identical to those in the Grimoire—suggest their servants never left.
+- [Mere myth?] Or a warning?
 
+...
 
-The status of cats in Egypt was such that they were often mummified and buried with honors similar to those given to humans.

@@ -13,9 +13,17 @@ from character import MainCharacter
 
 class Graveyard(MainCharacter): 
     def __init__(self, char_name, aura, spirit, psych, karma, vitality, end_game):
+        # Ensure all attributes are ≤ 0
+        aura = min(aura, 0)
+        spirit = min(spirit, 0)
+        psych = min(psych, 0)
+        karma = min(karma, 0)
+        vitality = min(vitality, 0)
+
         super().__init__(char_name, aura, spirit, psych, karma, vitality)
         self.end_game = end_game # Should this be here? Or should we handle it outisde the class?
         self.deceased_characters = []
+        self.alive_character = []
 
     def add_deceased_character(self, character):
         """
@@ -63,4 +71,34 @@ class Graveyard(MainCharacter):
         self.process_life_choices()
 
         return self.life_choices
+
+if __name__  == "__main__":
+    # ******************* TESTS *******************
+    dead_char = MainCharacter("Dead", 1, 2, 1, 4, 5)
+    alive_char = MainCharacter("Alive", 2, 3, 2, 5, 10)
+    graveyard = Graveyard()
+
+    dead_char.is_alive = False
     
+    # Test adding deceased character (game ongoing)
+    graveyard.add_deceased_character(dead_char, end_game=False)
+    
+    # Test adding alive character (game ongoing)
+    graveyard.add_deceased_character(alive_char, end_game=False) 
+    
+    # Test adding alive character (game ended)
+    graveyard.add_deceased_character(alive_char, end_game=True)
+    
+    # Display history
+    graveyard.display_life_history(dead_char)
+    graveyard.display_life_history(alive_char)  # It should not be called in graveyard
+
+    # Test clamping attributes
+    graveyard = Graveyard(aura=5, spirit=-3, psych=2, karma=-1, vitality=10)
+    
+    # All attributes should be ≤ 0
+    print(f"Aura: {graveyard.aura}")       # Output: 0
+    print(f"Spirit: {graveyard.spirit}")  # Output: -3
+    print(f"Psych: {graveyard.psych}")    # Output: 0
+    print(f"Karma: {graveyard.karma}")    # Output: -1
+    print(f"Vitality: {graveyard.vitality}")  # Output: 0

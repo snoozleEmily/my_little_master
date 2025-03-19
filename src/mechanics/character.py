@@ -60,7 +60,7 @@ class MainCharacter:
             if char_dir doesn't exist: returns the path set in self.char_dir without changes
 
             if char_dir already exists: returns the path with modified name using a counter.
-                Example: If "TestChar" already exists and you want to create another "TestChar" dir,
+                Example: If "TestChar" already exists, and you want to create another "TestChar" dir,
                 the function will name the new dir as "TestChar(1)".
                 If you try to create yet another TestChar dir, this time it will be named "TestChar(2)" and so on...
         """
@@ -86,13 +86,13 @@ class MainCharacter:
         self.attributes[str_attribute] -= number
         self.check_status()
 
-    def make_choice(self, event, choice_index):
+    def make_choice(self, event_param, choice_index):
         """
         Handles the character's choice during an event, records the choice and consequence,
         and updates the character's attributes based on the consequence.
 
         Args:
-            event (SingleEvent): The event object containing choices and consequences.
+            event_param (SingleEvent): The event object containing choices and consequences.
             choice_index (int): The index of the chosen option in the event's choices list.
 
         Returns:
@@ -101,15 +101,15 @@ class MainCharacter:
         Raises:
             ValueError: If the choice_index is out of bounds for the event's choices list.
         """
-        if 0 <= choice_index < len(event.choices):
-            choice = event.choices[choice_index]
-            consequence = event.consequences[choice_index]
+        if 0 <= choice_index < len(event_param.choices):
+            choice = event_param.choices[choice_index]
+            consequence = event_param.apply_consequences(choice)
 
             # Store the event details
             choice_dict = {
-                "event_title": event.title,
+                "event_title": event_param.title,
                 "event_choice": choice,
-                "consequence": consequence,
+                "consequence": consequence
             }
 
             self.life_choices.append(choice_dict)
@@ -132,7 +132,7 @@ class MainCharacter:
         if not self.life_choices:
             return
 
-        last_choice = self.life_choices[-1]
+        last_choice = self.life_choices[-1] # Adds only the last choice_dict, otherwise it will add all the choice_dicts thus far
 
         with open(self.file_path, "a") as char_hist_file:
             char_hist_file.write(
@@ -165,20 +165,25 @@ if __name__  == "__main__":
         f"vitality after decrease: {test_char.attributes['vitality']}"
     )  # Expected: 3 Actual: 3
 
-    choices_list = ["Option A", "Option B"]
-
-    consequences_list = [
-        {"attribute": "vitality", "value": -3},
-        {"attribute": "vitality", "value": 1},
-    ]
+    # make_choice OK
     test_event = event.SingleEvent(
-        title="Test Event",
-        description="This is a test event's description",
-        image="Image",
-        choices=choices_list,
-        consequences=consequences_list,
-    )
+                         'Test Event',
+                         'This is a test event',
+                         None,
+                         ['Choice 1', 'Choice 2'],
+                         {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -6}}
+                         )
 
-    # Simulate making a choice (Option A)
-    test_char.make_choice(test_event, 0) # 0 = A
-    test_char.check_status()
+    # 'Choice 1': {'attribute': 'vitality', 'value': 10}
+    print(test_char.make_choice(event_param=test_event, choice_index=0)) # Output: Choice 1
+
+    print(f"vitality: {test_char.attributes['vitality']}")  # Expected: 13 Actual: 13
+    print(f"check_status: {test_char.check_status()}") # Output: True
+
+
+    # 'Choice 2': {'attribute': 'psych', 'value': -6}
+    print(test_char.make_choice(event_param=test_event, choice_index=1))  # Output: Choice 2
+
+    print(f"psych: {test_char.attributes['psych']}")  # Expected: 0 Actual: 0
+    print(f"check_status: {test_char.check_status()}") # Output: False
+

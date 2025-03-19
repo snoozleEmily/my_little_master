@@ -1,35 +1,9 @@
-
-TestChar has perished.
-
-TestChar has perished.
-
-TestChar has perished.
-
-TestChar has perished.
 Test Event
-Option A
-{'attribute': 'vitality', 'value': -3}
-
-TestChar has perished.
-
-TestChar has perished.
+Choice 1
+{'attribute': 'vitality', 'value': 10}
 Test Event
-Option A
-{'attribute': 'vitality', 'value': -3}
-
-TestChar has perished.
-
-TestChar has perished.
-Test Event
-Option A
-{'attribute': 'vitality', 'value': -3}
-
-TestChar has perished.
-
-TestChar has perished.
-Test Event
-Option A
-{'attribute': 'vitality', 'value': -3}
+Choice 2
+{'attribute': 'psych', 'value': -6}
 
 TestChar has perished.
 

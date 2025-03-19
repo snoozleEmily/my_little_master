@@ -76,25 +76,25 @@ if __name__  == "__main__":
     # ******************* TESTS *******************
     dead_char = MainCharacter("Dead", 1, 2, 1, 4, 5)
     alive_char = MainCharacter("Alive", 2, 3, 2, 5, 10)
-    graveyard = Graveyard()
+    
+    # Test clamping attributes
+    graveyard = Graveyard(char_name= 'MC',aura=5, spirit=-3, psych=2, karma=-1, vitality=10, end_game=False)
 
     dead_char.is_alive = False
     
     # Test adding deceased character (game ongoing)
-    graveyard.add_deceased_character(dead_char, end_game=False)
+    graveyard.add_deceased_character(dead_char)
     
     # Test adding alive character (game ongoing)
-    graveyard.add_deceased_character(alive_char, end_game=False) 
+    graveyard.add_deceased_character(alive_char) 
     
     # Test adding alive character (game ended)
-    graveyard.add_deceased_character(alive_char, end_game=True)
+    graveyard.add_deceased_character(alive_char)
     
     # Display history
     graveyard.display_life_history(dead_char)
     graveyard.display_life_history(alive_char)  # It should not be called in graveyard
 
-    # Test clamping attributes
-    graveyard = Graveyard(aura=5, spirit=-3, psych=2, karma=-1, vitality=10)
     
     # All attributes should be ≤ 0
     print(f"Aura: {graveyard.aura}")       # Output: 0

@@ -94,11 +94,3 @@ if __name__  == "__main__":
     # Display history
     graveyard.display_life_history(dead_char)
     graveyard.display_life_history(alive_char)  # It should not be called in graveyard
-
-    
-    # All attributes should be ≤ 0
-    print(f"Aura: {graveyard.aura}")       # Output: 0
-    print(f"Spirit: {graveyard.spirit}")  # Output: -3
-    print(f"Psych: {graveyard.psych}")    # Output: 0
-    print(f"Karma: {graveyard.karma}")    # Output: -1
-    print(f"Vitality: {graveyard.vitality}")  # Output: 0

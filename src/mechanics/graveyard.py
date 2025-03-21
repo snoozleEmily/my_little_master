@@ -1,4 +1,5 @@
 from character import MainCharacter
+import collections
 
 
 # Salvar aqui as instâncias de personagens que morreram
@@ -9,7 +10,11 @@ from character import MainCharacter
 #      [problemas com isso: com tempo o jogo vai ficar muito pesado. 
 #      Considerar a implementação de clear cache e 
 #      salvar os arquivos de histórico em outro lugar,
-#      como um arquivo de texto separado, por exemplo]
+#      como um arquivo de texto separado, por exemplo
+#
+#      uma solução é contabilizar quantos tem no graveyard e passar a deletar os mais antigos após um número limite
+#      ex: máximo de 50 chars no graveyard
+#      quando vier o 51º, deleta o 1º, já que é o mais antigo]
 
 class Graveyard(MainCharacter): 
     def __init__(self, char_name, aura, spirit, psych, karma, vitality, end_game):
@@ -22,7 +27,7 @@ class Graveyard(MainCharacter):
 
         super().__init__(char_name, aura, spirit, psych, karma, vitality)
         self.end_game = end_game # Should this be here? Or should we handle it outisde the class?
-        self.deceased_characters = []
+        self.deceased_characters = collections.deque(maxlen=50) # Max 50 chars in the graveyard. Deque automatically deletes the oldest char if limit is reached.
         self.alive_character = []
 
     def add_deceased_character(self, character):
@@ -34,7 +39,8 @@ class Graveyard(MainCharacter):
         """
         if not character.is_alive:
             self.deceased_characters.append(character)
-        if character.is_alive and not self.end_game: #change the var placing?
+            print(f"{character.char_name} has been added to the deceased characters list.")
+        elif character.is_alive and not self.end_game: #change the var placing?
             print(f"{character.char_name} has reached the end of the game alive.")
         else:
             print(f"{character.char_name} is still alive and cannot be added to the graveyard.")
@@ -72,6 +78,7 @@ class Graveyard(MainCharacter):
 
         return self.life_choices
 
+
 if __name__  == "__main__":
     # ******************* TESTS *******************
     dead_char = MainCharacter("Dead", 1, 2, 1, 4, 5)
@@ -94,3 +101,6 @@ if __name__  == "__main__":
     # Display history
     graveyard.display_life_history(dead_char)
     graveyard.display_life_history(alive_char)  # It should not be called in graveyard
+
+    # Graveyard quantity
+    print(graveyard.check_graveyard_quantity())

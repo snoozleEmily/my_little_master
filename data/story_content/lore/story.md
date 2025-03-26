@@ -1,5 +1,8 @@
 [WIP]
 
+- [Who were these gods?] Were they creators, or parasites feeding on mortal belief? Stories claim they abandoned the world. Yet the cats’ burial rites—identical to those in the Grimoire—suggest their servants never left.
+- [Mere myth?] Or a warning?
+
 # The Twelve Gods
 *"And so it was written in the annals of the ancients, that twelve great gods reigned over the fates of men, unseen but ever present, their will shaping the course of the world. Their names are whispered still, carried on the winds of forgotten tongues, etched into stone where only the dust of time may read them. And those who served them, their faithful servants, carried out their will with unwavering devotion. To know their names is to glimpse the fabric of existence itself…"*
 
@@ -40,13 +43,3 @@ Where he stepped, ruin followed. War, destruction, madness—these were his gift
 
 ## Nami Delibera, Mistress of the Tides
 Her voice was the crash of waves, her breath the howling of the wind. Goddess of the seas, weather, and guidance, her reach was vast and untamable. Though the ocean was ever shifting, her thirty-three harmonious servants worked tirelessly to bring balance to the restless waters, ensuring that chaos never fully consumed the world.
-
----  
-
-The Black Cat grimore the sacrate script which evokes the gods’ unspoken agreement and their eternal influence, has written `The status of cats in Egypt was such that they were often mummified and buried with honors similar to those given to humans. Proof that mortals once knew their place—as pawns in a game played by twelve hands, their servants the true architects of history.` The reeling weight of ancient knowledge it holds. 
-
-- [Who were these gods?] Were they creators, or parasites feeding on mortal belief? Stories claim they abandoned the world. Yet the cats’ burial rites—identical to those in the Grimoire—suggest their servants never left.
-- [Mere myth?] Or a warning?
-
-...
-

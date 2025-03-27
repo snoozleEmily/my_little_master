@@ -5,7 +5,6 @@ import pygame
 from core.key_controls import KeyControls
 from core.display_manager import DisplayManager
 from core.sound_controller import SoundController
-from constants.colors import BACKGROUND_COLOR
 from constants.project_config import WIDTH, HEIGHT
 
 
@@ -29,8 +28,7 @@ def main():
         # the main loop should have the minimun amount of code possible 
         # for better readability and maintainance
         
-        display.screen.fill(BACKGROUND_COLOR)
-        pygame.display.flip()
+        display.update_screen()
 
     pygame.quit()
 

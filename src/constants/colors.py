@@ -1,6 +1,10 @@
 TEXT_COLOR = (0, 0, 0) 
-BACKGROUND_COLOR = (200, 5, 5)
+
 BUTTON_COLOR = (0, 50, 25)
+BACKGROUND_COLOR = {
+ 'red': (200, 5, 5),
+}
+
 
 # Example colors, we can change them later
 # let's avoid using names like "red" or "blue" because they are too generic...

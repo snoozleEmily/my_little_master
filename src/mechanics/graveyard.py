@@ -28,7 +28,14 @@ class Graveyard(MainCharacter):
         super().__init__(char_name, aura, spirit, psych, karma, vitality)
         self.end_game = end_game # Should this be here? Or should we handle it outisde the class?
         self.deceased_characters = collections.deque(maxlen=50) # Max 50 chars in the graveyard. Deque automatically deletes the oldest char if limit is reached.
-        self.alive_character = []
+        self.character = {
+            "char_name": char_name,
+            "aura": aura,
+            "spirit": spirit,
+            "psych": psych,
+            "karma": karma,
+            "vitality": vitality,
+        }
 
     def add_deceased_character(self, character):
         """
@@ -39,11 +46,11 @@ class Graveyard(MainCharacter):
         """
         if not character.is_alive:
             self.deceased_characters.append(character)
-            print(f"{character.char_name} has been added to the deceased characters list.")
+            print(f"{self.char_name} has been added to the deceased characters list.")
         elif character.is_alive and not self.end_game: #change the var placing?
-            print(f"{character.char_name} has reached the end of the game alive.")
+            print(f"{self.char_name} has reached the end of the game alive.")
         else:
-            print(f"{character.char_name} is still alive and cannot be added to the graveyard.")
+            print(f"{self.char_name} is still alive and cannot be added to the graveyard.")
 
     def display_life_history(self, character):
         """
@@ -54,7 +61,7 @@ class Graveyard(MainCharacter):
         """
         if character in self.deceased_characters:
             # For testing, must be changed to write to a file or screen
-            print(f"Life History of {character.char_name}:")
+            print(f"Life History of {self.char_name}:")
             for choice in character.life_choices:
                 print(f"Event: {choice['event_title']}")
                 print(f"Choice: {choice['event_choice']}")
@@ -66,17 +73,30 @@ class Graveyard(MainCharacter):
     def char_history(self, event):
         """
         Overrides the char_history method from MainCharacter to add Graveyard-specific behavior.
+        Uses getattr() with default values to safely access event attributes.
         """
+        defaults = {
+            # We can change default values later, this is just a placeholder
+            'title': 'Unknown Title',
+            'choice': 'No Choice Recorded',
+            'consequence': 'No Consequence Recorded'
+        }
         choice_dict = {
-            "event_title": event.title,
-            "event_choice": event.choice,
-            "consequence": event.consequence,
+            "event_title": getattr(event, 'title', defaults['title']),
+            "event_choice": getattr(event, 'choice', defaults['choice']),
+            "consequence": getattr(event, 'consequence', defaults['consequence'])
         }
 
         self.life_choices.append(choice_dict)
         self.process_life_choices()
 
         return self.life_choices
+    
+    def check_graveyard_quantity(self):
+        """
+        Returns the number of characters in the graveyard.
+        """
+        return len(self.deceased_characters)
 
 
 if __name__  == "__main__":
@@ -100,7 +120,7 @@ if __name__  == "__main__":
     
     # Display history
     graveyard.display_life_history(dead_char)
-    graveyard.display_life_history(alive_char)  # It should not be called in graveyard
+    graveyard.display_life_history(alive_char)  # It should not be called in graveyard?
 
     # Graveyard quantity
     print(graveyard.check_graveyard_quantity())

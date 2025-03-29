@@ -79,6 +79,7 @@ PALETTE = {
 def get_palette(god="abend"):
     """
     Returns a color dictionary for the specified god.
+    
     Registered Gods:
     - abend
     - bastet
@@ -90,6 +91,12 @@ def get_palette(god="abend"):
     - abraxas
     - rath
     - ?
+
+    Usage:
+    p = get_palette("thoth") 
+    self.screen.fill(f"#{p['background']}"
+    text_surface = font.render("Hello", True, f"#{p['text']}")  
+    pygame.draw.rect(self.screen, f"#{p['button']}", button_rect)
     """
     try:
         colors = PALETTE[god]

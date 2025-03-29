@@ -1,7 +1,7 @@
 import pygame
 
 
-from constants.colors import BACKGROUND_COLOR
+from constants.colors import get_palette
 
 
 
@@ -11,11 +11,22 @@ class DisplayManager:
         self.width = width
         self.height = height
         self.fullscreen = False
+
         self.screen = pygame.display.set_mode(
             (self.width, self.height), 
             pygame.RESIZABLE
         )
-        
+
+        # Color Palette
+        self._current_palette = get_palette("abend")  # Make this dynamic later, chosing the God
+        self._txt_color = f"#{self._current_palette['text']}"
+        self._btn_color = f"#{self._current_palette['button']}"
+        self._bg_color = f"#{self._current_palette['background']}"
+    
+    def set_palette(self, god_name):
+        self._current_palette = get_palette(god_name)
+        self._bg_color = f"#{self._current_palette['background']}"
+    
     def toggle_fullscreen(self):
         self.fullscreen = not self.fullscreen
         if self.fullscreen:
@@ -37,9 +48,10 @@ class DisplayManager:
                 (self.width, self.height),
                 pygame.RESIZABLE
             )
+    
     def update_screen(self):
         """Update the screen with the current background color."""
         # The color of screen depends on the "feeling" of the story
         # we should hadle this here, adding conditionals to change the color
-        self.screen.fill(BACKGROUND_COLOR['red']) 
+        self.screen.fill(self._bg_color)
         pygame.display.flip()

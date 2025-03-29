@@ -27,7 +27,6 @@ def main():
         # To add more elements to the screen, handle them on a separate file
         # the main loop should have the minimun amount of code possible 
         # for better readability and maintainance
-        
         display.update_screen()
 
     pygame.quit()

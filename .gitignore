@@ -68,3 +68,5 @@ desktop.ini
 .coverage
 htmlcov/
 .mypy_cache/
+/src/constants/__pycache__
+*.pyc

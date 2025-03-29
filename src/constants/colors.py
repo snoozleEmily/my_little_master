@@ -106,8 +106,8 @@ def get_palette(god="abend"):
             "background": colors[2] if len(colors) > 2 else DEFAULTS["background"],
             # "?????": colors[3] if len(colors) > 3 else DEFAULTS["?????"]  - etc
         }
-    except KeyError:
-        print(f"Palette for god '{god}' not found. Using default colors.")
+    except KeyError as e:
+        print(f"KeyError: {e}.\n Palette for god '{god}' not found. Using default colors.\n")
         return DEFAULTS.copy()
 
 # Example usage:

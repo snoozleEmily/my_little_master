@@ -1,5 +1,8 @@
 from typing import Optional      # Using "typing" module to better organize the parameters for event classes
+
+
 from chapter_phase_options import ChapterPhaseOptions
+
 
 class SingleEvent:
     """

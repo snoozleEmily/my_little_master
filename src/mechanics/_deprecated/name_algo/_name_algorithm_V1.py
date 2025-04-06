@@ -1,6 +1,6 @@
-import pygame
 import random
 import string
+import pygame
 import numpy as np
 
 # from random import

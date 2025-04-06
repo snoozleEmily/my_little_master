@@ -5,10 +5,18 @@
 # March 30th, 2025 - HEAVY WORK IN PROGRESS...
 import event
 
+
 from chapter_phase_options import ChapterPhaseOptions
 
-class WrongChapterPhase(Exception):
-    pass
+
+
+class WrongChapterPhase(Exception): 
+    # Será que não seria melhor lidar com "exceções" em outro módulo? 
+    # Principalmente se tivermos muitas exceções diferentes.
+    # Não sei como pensou em desenvolver essa parte do código, talvez faça sentido manter aqui...
+    # It's your call litle master!
+    
+    pass # TODO: Implement this exception
 
 class Chapter:
     def __init__(self, current_phase):

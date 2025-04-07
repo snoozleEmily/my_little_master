@@ -1,7 +1,9 @@
-from typing import Optional      # Using "typing" module to better organize the parameters for event classes
+from typing import Optional      
+# Using "typing" module to better organize the parameters for event classes
 
 
-from chapter_phase_options import ChapterPhaseOptions
+from chapter_phase import ChapterPhaseOptions as phase
+
 
 
 class SingleEvent:
@@ -22,7 +24,7 @@ class SingleEvent:
                  choices:Optional[list]=None,
                  consequences:Optional[dict]=None,
                  # Can only accept None or the values in ChapterPhaseOptions class.
-                 chapter_phase:Optional[ChapterPhaseOptions]=None  
+                 chapter_phase:Optional[phase]=None  
     ):
         self.title = title
         self.description = description
@@ -43,7 +45,7 @@ if __name__ == "__main__":
           None, ['Choice 1', 'Choice 2'],
           {'Choice 1': {'attribute': 'vitality', 'value': 10}, 
            'Choice 2': {'attribute': 'psych', 'value': -5}},
-          ChapterPhaseOptions.INTRODUCTION
+          phase.INTRODUCTION
           )
 
     # Output: {'attribute': 'vitality', 'value': 10}

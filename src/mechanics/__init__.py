@@ -1,6 +1,6 @@
 from character import MainCharacter
 from event import SingleEvent
-from chapter_phase_options import ChapterPhaseOptions
+from chapter_phase import ChapterPhaseOptions
 from narrative import ChapterPhaseOptions, WrongChapterPhase
 
 __all__ = [

@@ -42,7 +42,7 @@ test_event = SingleEvent(
                          ChapterPhaseOptions.INTRODUCTION
                          )
 
-print(test_event.apply_consequences('Choice 1')) # Output: {'attribute': 'vitality', 'value': 10}
-print(test_event.apply_consequences('Choice 2')) # Output: {'attribute': 'psych', 'value': -5}
-print(test_event.chapter_phase) # Output: ChapterPhaseOptions.INTRODUCTION
-print(test_event.chapter_phase.value) # Output: introduction
+# print(test_event.apply_consequences('Choice 1')) # Output: {'attribute': 'vitality', 'value': 10}
+# print(test_event.apply_consequences('Choice 2')) # Output: {'attribute': 'psych', 'value': -5}
+# print(test_event.chapter_phase) # Output: ChapterPhaseOptions.INTRODUCTION
+# print(test_event.chapter_phase.value) # Output: introduction

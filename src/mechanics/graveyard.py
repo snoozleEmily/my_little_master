@@ -1,22 +1,36 @@
-from character import MainCharacter
 import collections
 
 
-# Salvar aqui as instâncias de personagens que morreram
-# Ter módulo para:
-# - Mostrar o último personagem no end game
-# - Mostrar todos os personagens no graveyard
-#   -- Mostrar a história completa de cada um. 
-#      [problemas com isso: com tempo o jogo vai ficar muito pesado. 
-#      Considerar a implementação de clear cache e 
-#      salvar os arquivos de histórico em outro lugar,
-#      como um arquivo de texto separado, por exemplo
-#
-#      uma solução é contabilizar quantos tem no graveyard e passar a deletar os mais antigos após um número limite
-#      ex: máximo de 50 chars no graveyard
-#      quando vier o 51º, deleta o 1º, já que é o mais antigo]
+from character import MainCharacter
+
+"""
+[NOTAS]:
+ Esse log / histórico poderia, por exemplo, 
+ gravar o que ele fez no evento X e a consequência daquilo,
+ assim fica uma espécie de história da vida dele depois que ele morre,
+ com os eventos que ocorreram na vida dele e quais foram suas escolhas.
+ E então pode ter uma opção no menu principal que mostra os MCs passados (tipo um Graveyard),
+ com suas histórias de vida.
+ Isso seria uma espécie de função log da classe main_character que é depois pega pelo jogo
+ pra montar o Graveyard e também pode mostrar na tela de game over.
+"""
 
 class Graveyard(MainCharacter): 
+    """
+    [NOTAS]: Salvar aqui as instâncias de personagens que morreram
+    Ter módulo para:
+    - Mostrar o último personagem no end game
+    - Mostrar todos os personagens no graveyard
+        -- Mostrar a história completa de cada um. 
+            [problemas com isso: com tempo o jogo vai ficar muito pesado. 
+            Considerar a implementação de clear cache e 
+            salvar os arquivos de histórico em outro lugar,
+            como um arquivo de texto separado, por exemplo 
+            uma solução é contabilizar quantos tem no graveyard e passar 
+            a deletar os mais antigos após um número limite,
+            por ex: máximo de 50 chars no graveyard
+            quando vier o 51º, deleta o 1º, já que é o mais antigo]
+    """
     def __init__(self, char_name, aura, spirit, psych, karma, vitality, end_game):
         # Ensure all attributes are ≤ 0
         aura = min(aura, 0)

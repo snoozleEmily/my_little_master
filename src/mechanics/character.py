@@ -1,20 +1,21 @@
-# import quantum_letter_matrix as qlm
 import os
 import event
 import itertools
 
-# Esse log / histórico poderia, por exemplo, gravar o que ele fez no evento X e a consequência daquilo,
-# assim fica uma espécie de história da vida dele depois que ele morre,
-# com os eventos que ocorreram na vida dele e quais foram suas escolhas.
-
-# E então pode ter uma opção no menu principal que mostra os MCs passados (tipo um Graveyard),
-# com suas histórias de vida.
-
-# Isso seria uma espécie de função log da classe main_character que é depois pega pelo jogo
-# pra montar o Graveyard e também pode mostrar na tela de game over.
 
 
 class MainCharacter:
+    """
+    Basic info:
+        - char_name (str): The name of the character.
+
+    Attributes:
+        - aura (int): Represents the character's aura level.
+        - spirit (int): Represents the character's spirit level.
+        - psych (int): Represents the character's psychological state.
+        - karma (int): Represents the character's karma level.
+        - vitality (int): Represents the character's vitality level.
+    """
     def __init__(self, char_name, aura, spirit, psych, karma, vitality):
         self.char_name = char_name
 
@@ -67,9 +68,13 @@ class MainCharacter:
         if not os.path.exists(base_dir_path):
             return base_dir_path
         else:
-            return next(f"{base_dir_path}({i})" for i in itertools.count(1) if not os.path.exists(f"{base_dir_path}({i})"))
+            return next(f"{base_dir_path}({i})" 
+                        for i in itertools.count(1) 
+                        if not os.path.exists(f"{base_dir_path}({i})"
+                         ))
 
-    def check_status(self):  # Checks if all attributes > 0, else it's false and char is dead
+    def check_status(self):  
+        # Checks if all are attributes > 0, if false the char is dead
         self.is_alive = all(value > 0 for value in self.attributes.values())
 
         if not self.is_alive:
@@ -132,7 +137,9 @@ class MainCharacter:
         if not self.life_choices:
             return
 
-        last_choice = self.life_choices[-1] # Adds only the last choice_dict, otherwise it will add all the choice_dicts thus far
+        # Adds only the last choice_dict, otherwise it 
+        # will add all the choice_dicts thus far
+        last_choice = self.life_choices[-1] 
 
         with open(self.file_path, "a") as char_hist_file:
             char_hist_file.write(
@@ -142,7 +149,8 @@ class MainCharacter:
             )
 
 
-if __name__  == "__main__":
+# Será que seria melhor lidar com esse teste em outro módulo e só chamar aqui?
+if __name__  == "__main__": 
 
     # ******************* TESTS *******************
     # init MainCharacter OK
@@ -167,12 +175,13 @@ if __name__  == "__main__":
 
     # make_choice OK
     test_event = event.SingleEvent(
-                         'Test Event',
-                         'This is a test event',
-                         None,
-                         ['Choice 1', 'Choice 2'],
-                         {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -6}}
-                         )
+       'Test Event',
+       'This is a test event',
+       None,
+       ['Choice 1', 'Choice 2'],
+       {'Choice 1': {'attribute': 'vitality', 'value': 10}, 
+        'Choice 2': {'attribute': 'psych', 'value': -6}}
+       )
 
     # 'Choice 1': {'attribute': 'vitality', 'value': 10}
     print(test_char.make_choice(event_param=test_event, choice_index=0)) # Output: Choice 1

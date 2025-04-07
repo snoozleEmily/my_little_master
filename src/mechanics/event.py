@@ -1,5 +1,8 @@
 from typing import Optional      # Using "typing" module to better organize the parameters for event classes
+
+
 from chapter_phase_options import ChapterPhaseOptions
+
 
 class SingleEvent:
     """
@@ -18,31 +21,39 @@ class SingleEvent:
                  image:Optional[str]=None,
                  choices:Optional[list]=None,
                  consequences:Optional[dict]=None,
-                 chapter_phase:Optional[ChapterPhaseOptions]=None  # Can only accept None or the values in ChapterPhaseOptions class.
+                 # Can only accept None or the values in ChapterPhaseOptions class.
+                 chapter_phase:Optional[ChapterPhaseOptions]=None  
     ):
-
         self.title = title
         self.description = description
         self.image = image
         self.choices = choices if choices is not None else []
-        self.consequences = consequences if consequences is not None else {} # Example: {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -5}}
+        # Example: {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -5}}
+        self.consequences = consequences if consequences is not None else {} 
         self.chapter_phase = chapter_phase
 
     def apply_consequences(self, choice):
         return self.consequences.get(choice, {})
 
-# TESTS
 
-test_event = SingleEvent(
-                         'Test Event',
-                         'This is a test event',
-                         None,
-                         ['Choice 1', 'Choice 2'],
-                         {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -5}},
-                         ChapterPhaseOptions.INTRODUCTION
-                         )
+# -------------------- TESTS ---------------------
+if __name__ == "__main__":
+    test_event = SingleEvent(
+          'Test Event', 'This is a test event', 
+          None, ['Choice 1', 'Choice 2'],
+          {'Choice 1': {'attribute': 'vitality', 'value': 10}, 
+           'Choice 2': {'attribute': 'psych', 'value': -5}},
+          ChapterPhaseOptions.INTRODUCTION
+          )
 
-# print(test_event.apply_consequences('Choice 1')) # Output: {'attribute': 'vitality', 'value': 10}
-# print(test_event.apply_consequences('Choice 2')) # Output: {'attribute': 'psych', 'value': -5}
-# print(test_event.chapter_phase) # Output: ChapterPhaseOptions.INTRODUCTION
-# print(test_event.chapter_phase.value) # Output: introduction
+    # Output: {'attribute': 'vitality', 'value': 10}
+    print(test_event.apply_consequences('Choice 1')) 
+
+    # Output: {'attribute': 'psych', 'value': -5}
+    print(test_event.apply_consequences('Choice 2')) 
+
+    # Output: ChapterPhaseOptions.INTRODUCTION
+    print(test_event.chapter_phase) 
+
+    # Output: introduction
+    print(test_event.chapter_phase.value) 

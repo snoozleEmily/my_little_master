@@ -3,8 +3,11 @@ import json
 import unittest
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATES_DIR = os.path.join(BASE_DIR, "..", "..", "..", "data", "story_content", "Default JSON")
+
 
 class TestJinjaTemplates(unittest.TestCase):
     @classmethod

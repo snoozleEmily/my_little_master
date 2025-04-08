@@ -12,6 +12,7 @@
                 "Another alternative phrase for the master (or the story itself) to say.",
                 "Some other alternative phrase for the master (or the story itself) to say."
             ],
+            // change these names to be smaller and more descriptive
             "some_other_choice": [
                 "One alternative phrase for the master (or the story itself) to say",
                 "Another alternative phrase for the master (or the story itself) to say.",

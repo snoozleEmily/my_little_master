@@ -7,9 +7,9 @@ class ChapterPhaseOptions(Enum):
     """
     1. INTRODUCTION 
     2. INTRO_AFTER 
-    3. PHASE_RISING_ACT
-    4. PHASE_CRISIS 
-    5. PHASE_RESOLUTION 
+    3. RISING_ACTION
+    4. CRISIS
+    5. RESOLUTION
     6. ENDING_BEFORE 
     7. ENDING 
     """

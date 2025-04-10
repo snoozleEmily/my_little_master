@@ -20,13 +20,13 @@ The second choice could significantly impact the course of the story. For exampl
 - `intro_after`: 
     Give a hook for the next phase and the first choice with **custom text.**
 
-- `phase_rising_action`: 
+- `rising_action`: 
     Development and consequence of the first choice with **custom text.**
 
-- `phase_crisis`: 
+- `crisis`: 
     Give a crisis that leads to the second choice with **custom text.**     
 
-- `phase_resolution`: 
+- `resolution`: 
     Development text and consequence of the second choice with **custom text.**                         
 
 - `ending_before`: 

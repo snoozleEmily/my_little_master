@@ -1,0 +1,3 @@
+CLASSIFIERS = [
+    # Add the classifiers 
+]

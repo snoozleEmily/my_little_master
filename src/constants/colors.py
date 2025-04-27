@@ -2,7 +2,7 @@
 DEFAULTS = {
     "text": "000000",
     "button": "FFFFFF",
-    "background": "808080"
+    "background": "82150D"
 }
 
 PALETTE = {
@@ -19,7 +19,7 @@ PALETTE = {
     # The colors will still be rearranged to be more visually appealing
 
     # Abend Diabolos Pwuhn | The Unyielding Forge
-    "abend": ("A5OE0E",   # Dark red
+    "abend": ("981D15",   # Dark red
               "10060C",   # Black
               "E64E17",   # Dark orange
               "331403",   # Chocolate brown
@@ -107,7 +107,8 @@ def get_palette(god="abend"):
             # "?????": colors[3] if len(colors) > 3 else DEFAULTS["?????"]  - etc
         }
     except KeyError as e:
-        print(f"KeyError: {e}.\n Palette for god '{god}' not found. Using default colors.\n")
+        print(f"\nKeyError: {e}.\n Palette for god '{god}' not found. Using default colors.")
+        print(f"Check {__file__} for debugging.\n")
         return DEFAULTS.copy()
 
 # Example usage:

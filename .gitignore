@@ -70,3 +70,6 @@ htmlcov/
 .mypy_cache/
 /src/constants/__pycache__
 *.pyc
+*.pyc
+*.pyc
+*.pyc

@@ -4,9 +4,11 @@
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyc
 *.pyd
 *.so
 .pytest_cache/
+.mypy_cache/
 venv/
 .venv/
 .env
@@ -67,9 +69,4 @@ desktop.ini
 # ==============================
 .coverage
 htmlcov/
-.mypy_cache/
-/src/constants/__pycache__
-*.pyc
-*.pyc
-*.pyc
 *.pyc

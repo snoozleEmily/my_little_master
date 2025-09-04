@@ -1,9 +1,4 @@
-from typing import Optional      
-# Using "typing" module to better organize the parameters for event classes
-
-
-from chapter_phase import ChapterPhaseOptions as phase
-
+from typing import Optional    
 
 
 class SingleEvent:
@@ -22,9 +17,7 @@ class SingleEvent:
                  description:str= "",
                  image:Optional[str]=None,
                  choices:Optional[list]=None,
-                 consequences:Optional[dict]=None,
-                 # Can only accept None or the values in ChapterPhaseOptions class.
-                 chapter_phase:Optional[phase]=None  
+                 consequences:Optional[dict]=None
     ):
         self.title = title
         self.description = description
@@ -32,7 +25,6 @@ class SingleEvent:
         self.choices = choices if choices is not None else []
         # Example: {'Choice 1': {'attribute': 'vitality', 'value': 10}, 'Choice 2': {'attribute': 'psych', 'value': -5}}
         self.consequences = consequences if consequences is not None else {} 
-        self.chapter_phase = chapter_phase
 
     def apply_consequences(self, choice):
         return self.consequences.get(choice, {})
@@ -44,8 +36,7 @@ if __name__ == "__main__":
           'Test Event', 'This is a test event', 
           None, ['Choice 1', 'Choice 2'],
           {'Choice 1': {'attribute': 'vitality', 'value': 10}, 
-           'Choice 2': {'attribute': 'psych', 'value': -5}},
-          phase.INTRODUCTION
+           'Choice 2': {'attribute': 'psych', 'value': -5}}
           )
 
     # Output: {'attribute': 'vitality', 'value': 10}
@@ -53,9 +44,3 @@ if __name__ == "__main__":
 
     # Output: {'attribute': 'psych', 'value': -5}
     print(test_event.apply_consequences('Choice 2')) 
-
-    # Output: ChapterPhaseOptions.INTRODUCTION
-    print(test_event.chapter_phase) 
-
-    # Output: introduction
-    print(test_event.chapter_phase.value) 

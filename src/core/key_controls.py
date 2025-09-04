@@ -1,5 +1,7 @@
 import pygame
 
+
+
 class KeyControls:
     def __init__(self, display, music_controller):
         self.display = display
